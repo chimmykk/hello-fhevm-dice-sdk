@@ -1,31 +1,19 @@
+// deploy/01_deploy_fhe_dice_game.ts
+
 import { DeployFunction } from "hardhat-deploy/types";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
-import { postDeploy } from "postdeploy";
 
 const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  const chainId = await hre.getChainId();
-  const chainName = hre.network.name;
-
-  const contractName = "FHECounter";
-  const deployed = await deploy(contractName, {
+  const deployedFHEDiceGame = await deploy("FHEDiceGame", {
     from: deployer,
     log: true,
   });
 
-  console.log(`${contractName} contract address: ${deployed.address}`);
-  console.log(`${contractName} chainId: ${chainId}`);
-  console.log(`${contractName} chainName: ${chainName}`);
-
-  // Generates:
-  //  - <root>/packages/site/abi/FHECounterABI.ts
-  //  - <root>/packages/site/abi/FHECounterAddresses.ts
-  postDeploy(chainName, contractName);
+  console.log(`FHEDiceGame contract deployed to: ${deployedFHEDiceGame.address}`);
 };
-
 export default func;
-
-func.id = "deploy_fheCounter"; // id required to prevent reexecution
-func.tags = ["FHECounter"];
+func.id = "deploy_fhe_dice_game";
+func.tags = ["FHEDiceGame"];
