@@ -7,6 +7,7 @@ import {
   FaDiceTwo,
   FaDiceThree,
   FaLock,
+  FaGithub,
 } from "react-icons/fa";
 
 export const metadata: Metadata = {
@@ -32,6 +33,7 @@ export default async function RootLayout({
         <main className="flex flex-col max-w-screen-lg mx-auto pb-20 min-w-[850px]">
           <nav className="flex w-full px-3 h-fit py-10 justify-between items-center">
             <AppLogo />
+            <GitHubLink />
           </nav>
           <Providers>{children}</Providers>
         </main>
@@ -48,5 +50,19 @@ function AppLogo() {
       <FaDiceThree className="size-10" />
       <FaLock className="size-10" />
     </div>
+  );
+}
+
+function GitHubLink() {
+  return (
+    <a
+      href="https://github.com/chimmykk/hello-fhevm-dice"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center justify-center w-12 h-12 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors duration-200 border-2 border-black"
+      title="View on GitHub"
+    >
+      <FaGithub className="size-6" />
+    </a>
   );
 }

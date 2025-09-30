@@ -196,7 +196,11 @@ const PlayDice: React.FC<PlayDiceProps> = ({ loading, onPlay }) => {
               width: '100%',
               height: '50px',
               fontSize: '1rem',
-              fontWeight: '600'
+              fontWeight: '600',
+              backgroundColor: '#000000',
+              color: '#ffffff',
+              border: '2px solid #000000',
+              opacity: loading || !entropyReady ? 0.6 : 1
             }}
           >
             {loading ? (
