@@ -1,7 +1,6 @@
 "use client";
 
 import { useFhevm } from "@fhevm/react";
-import { useInMemoryStorage } from "../hooks/useInMemoryStorage";
 import { useMetaMaskEthersSigner } from "../hooks/metamask/useMetaMaskEthersSigner";
 import { useDiceGame } from "../hooks/useDiceGame";
 import { ErrorNotDeployed } from "./ErrorNotDeployed";
@@ -14,14 +13,12 @@ import { FHEDiceGameAddresses } from "@/abi/FHEDiceGameAddresses";
 export const DiceNarration = () => {
   const [isClient, setIsClient] = useState(false);
   
-  const { storage: fhevmDecryptionSignatureStorage } = useInMemoryStorage();
   const {
     provider,
     chainId,
     accounts,
     isConnected,
     connect,
-    ethersSigner,
   } = useMetaMaskEthersSigner();
 
   const {
