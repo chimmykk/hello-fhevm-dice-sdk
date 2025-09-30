@@ -37,11 +37,12 @@ const PlayDice: React.FC<PlayDiceProps> = ({ loading, onPlay }) => {
     setCapturing(true);
     setEntropyReady(false);
 
-    const onMove = (e: MouseEvent) => {
+    const onMove = (e: Event) => {
+      const mouseEvent = e as MouseEvent;
       const rect = areaRef.current?.getBoundingClientRect();
-      const x = rect ? e.clientX - rect.left : e.clientX;
-      const y = rect ? e.clientY - rect.top : e.clientY;
-      entropyRef.current.push(`${x},${y},${e.timeStamp}`);
+      const x = rect ? mouseEvent.clientX - rect.left : mouseEvent.clientX;
+      const y = rect ? mouseEvent.clientY - rect.top : mouseEvent.clientY;
+      entropyRef.current.push(`${x},${y},${mouseEvent.timeStamp}`);
     };
 
     const area = areaRef.current || window;
