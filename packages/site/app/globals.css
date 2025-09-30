@@ -5,3 +5,58 @@
 .zama-bg {
   background-color: #ffd200;
 }
+
+/* Dice animation styles */
+.dice-stage {
+  perspective: 1000px;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+}
+
+.dice-cube {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.dice-cube.dice-rolling {
+  animation: diceRoll 0.8s ease-in-out;
+}
+
+.dice-face {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: white;
+  border: 2px solid #333;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  font-weight: bold;
+  color: #333;
+}
+
+.face-1 { transform: rotateY(0deg) translateZ(60px); }
+.face-2 { transform: rotateY(90deg) translateZ(60px); }
+.face-3 { transform: rotateY(180deg) translateZ(60px); }
+.face-4 { transform: rotateY(-90deg) translateZ(60px); }
+.face-5 { transform: rotateX(90deg) translateZ(60px); }
+.face-6 { transform: rotateX(-90deg) translateZ(60px); }
+
+@keyframes diceRoll {
+  0% { transform: rotateX(0deg) rotateY(0deg); }
+  25% { transform: rotateX(90deg) rotateY(180deg); }
+  50% { transform: rotateX(180deg) rotateY(360deg); }
+  75% { transform: rotateX(270deg) rotateY(540deg); }
+  100% { transform: rotateX(360deg) rotateY(720deg); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

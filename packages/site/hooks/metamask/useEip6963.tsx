@@ -17,7 +17,10 @@ export function useEip6963(): Eip6963State {
   >(undefined);
   const activeLoadId = useRef(0);
   const isListener = useRef<boolean>(false);
-  const providers = useMemo<Eip6963ProviderDetail[]>(() => uuids ? Object.values(uuids) : [], [uuids]);
+  const providers = useMemo<Eip6963ProviderDetail[]>(
+    () => (uuids ? Object.values(uuids) : []),
+    [uuids]
+  );
 
   // Never exported or exposed to a child
   function _addUuidInternal(providerDetail: Eip6963ProviderDetail) {
@@ -38,11 +41,11 @@ export function useEip6963(): Eip6963State {
       ) {
         return prev;
       }
-      if (existing) {
-        console.log(`addUuid(${providerDetail.info.uuid}) update existing.`);
-      } else {
-        console.log(`addUuid(${providerDetail.info.uuid}) add new.`);
-      }
+      // if (existing) {
+      //   console.log(`addUuid(${providerDetail.info.uuid}) update existing.`);
+      // } else {
+      //   console.log(`addUuid(${providerDetail.info.uuid}) add new.`);
+      // }
       return { ...prev, [providerDetail.info.uuid]: providerDetail };
     });
   }
