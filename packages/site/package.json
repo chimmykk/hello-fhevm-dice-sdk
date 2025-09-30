@@ -11,8 +11,8 @@
   "scripts": {
     "clean": "rimraf .next && npm run generate-abi",
     "dev:mock": "next dev --turbopack",
-    "dev:mock:rebuild": "npm run dev --turbopack",
-    "dev-webpack:mock": "npm run dev",
+    "dev:mock:rebuild": "npm run is-hardhat-node-running && npm run clean && next dev --turbopack",
+    "dev-webpack:mock": "npm run is-hardhat-node-running && next dev",
     "dev-webpack:mock:rebuild": "npm run is-hardhat-node-running && npm run clean && next dev",
     "is-hardhat-node-running": "npm --prefix ../.. run is-hardhat-node-running",
     "generate-abi": "npm --prefix ../.. run generate-abi",
