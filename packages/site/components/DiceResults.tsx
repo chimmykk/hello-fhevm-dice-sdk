@@ -41,7 +41,7 @@ const DiceResults: React.FC<DiceResultsProps> = ({
       await onDecryptRoll();
       await onDecryptGuess();
       await onDecryptWinner();
-    } catch (err) {
+    } catch {
       // swallow; individual handlers already toast errors
     }
   };

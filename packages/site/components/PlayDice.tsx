@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 const faces = [1, 2, 3, 4, 5, 6];
 
@@ -66,7 +66,6 @@ const PlayDice: React.FC<PlayDiceProps> = ({ loading, onPlay }) => {
     }, 2000);
   };
 
-  const disabled = loading || !seed || Number(guess) < 1 || Number(guess) > 6;
 
   return (
     <div className="card" style={{ maxWidth: '600px', margin: '0 auto' }}>

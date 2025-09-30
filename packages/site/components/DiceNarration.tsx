@@ -22,13 +22,9 @@ export const DiceNarration = () => {
     isConnected,
     connect,
     ethersSigner,
-    ethersReadonlyProvider,
-    sameChain,
-    sameSigner,
   } = useMetaMaskEthersSigner();
 
   const {
-    instance: fhevmInstance,
     status: fhevmStatus,
     error: fhevmError,
   } = useFhevm({
