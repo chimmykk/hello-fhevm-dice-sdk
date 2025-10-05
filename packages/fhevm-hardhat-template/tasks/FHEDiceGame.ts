@@ -114,8 +114,7 @@ task("task:dice-result", "Fetch the last dice roll and winner status")
       signer,
     );
 
-    const clearWinnerStatus = await fhevm.userDecryptEuint(
-      FhevmType.euint32,
+     const clearWinnerStatus = await fhevm.userDecryptEbool(
       encryptedWinnerStatus,
       FHEDiceDeployment.address,
       signer,
